@@ -14,12 +14,15 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'profile-search-results.html',
 })
 export class ProfileSearchResultsPage {
+  username: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private navCtrl: NavController, private navParams: NavParams) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ProfileSearchResultsPage');
+  ionViewWillLoad() {
+    this.username = this.navParams.get('username');
+    console.log(this.username);
+
   }
 
 }
