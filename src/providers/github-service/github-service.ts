@@ -20,8 +20,10 @@ export class GithubServiceProvider {
     console.log('Hello GithubServiceProvider Provider');
   }
   
-  mockGetUserInformation(): Observable<User> {
-    
+  
+  // Finds the name from within USER_LIST which equals username passed in
+  mockGetUserInformation(username: string): Observable<User> {
+    return Observable.of(USER_LIST.filter(user => user.name === username)[0]);
   }
 
 }

@@ -7,7 +7,7 @@ const userList: User[] = [
         location: 'New York',
         bio: 'Blah blah blurb about myself',
         avatar_url: string,
-        email: jackb@example.com
+        email: 'jackb@example.com'
     },
     { 
         name: 'Joe Bloggs',
@@ -15,7 +15,7 @@ const userList: User[] = [
         location: 'London',
         bio: 'Blah blah blurb about myself',
         avatar_url: string,
-        email: joe@abc.com
+        email: 'joe@abc.com'
     }
 ];
 
