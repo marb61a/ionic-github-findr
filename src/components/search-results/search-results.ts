@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { } from '../../models/user.interface';
+import { } from '../../models/user';
 
 /**
  * Generated class for the SearchResultsComponent component.
@@ -9,11 +9,11 @@ import { } from '../../models/user.interface';
  */
 @Component({
   selector: 'search-results',
-  templateUrl: 'search-results.component.html'
+  templateUrl: 'search-results.html'
 })
 export class SearchResultsComponent {
-  
   @Input() user: User
   
-
+  constructor(){
+  }
 }
