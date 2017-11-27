@@ -12,8 +12,8 @@ import { User } from '../../models/user.interface';
 
 @IonicPage()
 @Component({
-  selector: 'page-profile-search-results',
-  templateUrl: 'profile-search-results.html',
+  selector: 'page-profile-search-results-page',
+  templateUrl: 'profile-search-results-page.html',
 })
 export class ProfileSearchResultsPage {
   username: string;

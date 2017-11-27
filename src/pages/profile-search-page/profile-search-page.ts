@@ -10,8 +10,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-profile-search',
-  templateUrl: 'profile-search.html',
+  selector: 'page-profile-search-page',
+  templateUrl: 'profile-search-page.html',
 })
 export class ProfileSearchPage {
   username: string;
