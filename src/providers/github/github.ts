@@ -3,9 +3,11 @@ import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/of';
+import { User } from '../../models/user';
+import { Repository } from '../../models/repository';
 
-import { User } from '../models/user.interface';
-import { } from '../mocks/user.mocks';
+import { USER_LIST } from '../../mocks/user';
+import { REPOSITORY_LIST } from '../../mocks/repository';
 
 /*
   Generated class for the GithubServiceProvider provider.
@@ -14,10 +16,12 @@ import { } from '../mocks/user.mocks';
   and Angular DI.
 */
 @Injectable()
-export class GithubServiceProvider {
+export class GithubProvider {
+  baseUrl: string = 'https://api.github.com/users';
+  reposUrl: string = 'repos';
 
-  constructor(public http: Http) {
-    console.log('Hello GithubServiceProvider Provider');
+  constructor(private http: Http) {
+
   }
   
   
@@ -25,5 +29,10 @@ export class GithubServiceProvider {
   mockGetUserInformation(username: string): Observable<User> {
     return Observable.of(USER_LIST.filter(user => user.name === username)[0]);
   }
+  
+  // Returns the mock repository information
+  mockGetRepositoryInformation(username: string): Observable<Repository[]>{
+    return Observable.of(REPOSITORY_LIST.filter(repository => repository.owner.name === username));
+  }  
 
 }
