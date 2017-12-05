@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { User } from '../../models/user';
+import { Repository } from '../../models/repository';
 
 /**
  * Generated class for the ProfileSearchPage page.
@@ -10,19 +12,26 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-profile-search-page',
-  templateUrl: 'profile-search-page.html',
+  selector: 'page-profile',
+  templateUrl: 'profile.html',
 })
-export class ProfileSearchPage {
-  username: string;
+export class ProfilePage {
+  username: string = "";
+  user: User
 
-  constructor(private navCtrl: NavController, private navParams: NavParams) {
+  constructor(private navCtrl: NavController) {
+  }
+  
+  searchAgain(): void {
+    this.user = null;
+    this.username = "";
   }
 
   getUserInformation(): void {
     this.navCtrl.push('ProfileSearchResultsPage', {
       username: this.username
     });
+    
   }
 
 }

@@ -34,5 +34,20 @@ export class GithubProvider {
   mockGetRepositoryInformation(username: string): Observable<Repository[]>{
     return Observable.of(REPOSITORY_LIST.filter(repository => repository.owner.name === username));
   }  
+  
+  // Returns the user information for the username parameter
+  getUserInformation(username: string): Observable<User>{
+    return this.http.get(`${this.baseUrl}/${username}`)
+      .map((data: Response) => data.json());
+  }
+  
+  // Returns the user repository information for the username parameter
+  getRepositoryInformation(username: string): Observable<Repository[]>{
+    return this.http.get(`${this.baseUrl}/${username}/${this.reposUrl}`)
+      .map((data: Response) => data.json() as Repository[]);
+  }
 
 }
+
+
+
