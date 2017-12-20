@@ -37,5 +37,32 @@ export class ProfileSearchResultsPage {
     this.github.getRepositoryInformation(this.username).subscribe(data => this.repositories = data);
     this.dismissLoading(loader);
   }
+  
+  showLoading(){
+    let loader = this.loading.create({
+      content: "Please wait...",
+      duration: 3000
+    });
+    loader.present();
+    return loader;
+  }
+  
+  dismissLoading(loader: Loading){
+    loader.dismiss();
+  }
+  
+  getMockRepositoryInformation(): void {
+    this.github.mockGetRepositoryInformation(this.username)
+      .subscribe(data => {
+        this.repositories = data;
+      })
+  }
+
+  getMockUserInformation(): void {
+    this.github.mockGetUserInformation(this.username)
+      .subscribe((userData: User) => {
+        this.user = userData;
+      })
+  }
 
 }
