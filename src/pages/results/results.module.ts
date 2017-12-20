@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
-import { ProfileSearchResultsPage } from './profile-search-results';
+import { ResultsPage } from './results';
 import { ComponentsModule } from '../../components/components.module';
 
 @NgModule({
   declarations: [
-    ProfileSearchResultsPage,
+    ResultsPage,
   ],
   imports: [
     IonicPageModule.forChild(ProfileSearchResultsPage),

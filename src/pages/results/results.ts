@@ -1,0 +1,41 @@
+import { Component } from '@angular/core';
+import { IonicPage, NavParams, LoadingController, Loading} from 'ionic-angular';
+import { GithubProvider } from '../../providers/github/github';
+import { User } from '../../models/user';
+import { Repository } from '../../models/repository';
+
+/**
+ * Generated class for the ProfileSearchResultsPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+
+@IonicPage({
+  segment: 'profile/results/:username'
+})
+@Component({
+  selector: 'page-results',
+  templateUrl: 'results.html',
+})
+export class ProfileSearchResultsPage {
+  username: string;
+  user: User;
+  repositories: Repository[];
+
+  constructor(private loading: LoadingController, private navParams: NavParams, private github: GithubProvider) {
+  }
+  
+  ionViewWillLoad() {
+    this.username = this.navParams.get('username');
+    this.getUserInformation();
+  }
+  
+  getUserInformation():void {
+    let loader = this.showLoading();
+    this.github.getUserInformation(this.username).subscribe(data => this.user = data);
+    this.github.getRepositoryInformation(this.username).subscribe(data => this.repositories = data);
+    this.dismissLoading(loader);
+  }
+
+}
